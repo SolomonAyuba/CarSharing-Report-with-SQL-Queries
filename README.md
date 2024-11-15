@@ -90,10 +90,14 @@ Linda happens to be the boss at the company. She requested for a report containi
 2. Give me a table containing the name of the weekday, month, and season in which we had the highest and lowest average demand throughout 2017. Please include the calculated average demand values as well.
 3. For the weekday(s) selected in (2), please give me a table showing the average demand we had at different hours of that weekday throughout 2017. Please sort the results in descending order based on the average demand.
 4. Please tell me what the weather was like in 2017. Was it mostly cold, mild, or hot?
+   
    -    a. Which weather condition (shown in the weather column) was the most prevalent in 2017?
+     
    -    b. What was the average, highest, and lowest wind speed and humidity for each month in 2017? Please organize this information in two tables for the wind speed and humidity.
+     
    -    c. Please also give me a table showing the average demand for each cold, mild, and hot weather in 2017 sorted in descending order based on their average demand.
-5. Give me another table showing the information requested in (4) for the month we had the highest average demand in 2017 so that I can compare it with other months.
+     
+6. Give me another table showing the information requested in (4) for the month we had the highest average demand in 2017 so that I can compare it with other months.
 
 
 ## The requested queries were answered as follows:
@@ -113,11 +117,11 @@ WHERE t.timestamp LIKE "%2017%";
    ```sql
    WITH AvgDemand AS (
    SELECT 
-   				t.weekday_name AS weekday,
-   				t.month_name AS month,
-   				t.season,
-   				strftime('%Y', date(t.timestamp)) AS year,
-   				round(avg(cs.demand),2) as avg_demand
+         t.weekday_name AS weekday,
+         t.month_name AS month,
+         t.season,
+         strftime('%Y', date(t.timestamp)) AS year,
+         round(avg(cs.demand),2) as avg_demand
    FROM time t
    JOIN CarSharing_df cs ON t.id = cs.id
    WHERE year = "2017"
@@ -125,18 +129,18 @@ WHERE t.timestamp LIKE "%2017%";
    ),
    HighestLowestAvgDemand AS (
    SELECT
-   				max(avg_demand) AS highest_avg_demand,
-   				min(avg_demand) AS lowest_avg_demand
+         max(avg_demand) AS highest_avg_demand,
+         min(avg_demand) AS lowest_avg_demand
    FROM AvgDemand
    )
    SELECT
-   				ad.year, 
-   				ad.weekday,
-   				ad.month,
-   				ad.season,
-   				ad.avg_demand,
-   				hlad.highest_avg_demand,
-   				hlad.lowest_avg_demand
+         ad.year, 
+         ad.weekday,
+         ad.month,
+         ad.season,
+         ad.avg_demand,
+         hlad.highest_avg_demand,
+         hlad.lowest_avg_demand
    FROM AvgDemand  ad
    JOIN HighestLowestAvgDemand hlad
    WHERE ad.avg_demand = hlad.highest_avg_demand
@@ -160,8 +164,8 @@ WHERE t.timestamp LIKE "%2017%";
    ),
    HighestLowestAvgDemand AS (
    SELECT
-   				max(avg_demand) AS highest_avg_demand,
-   				min(avg_demand) AS lowest_avg_demand
+         max(avg_demand) AS highest_avg_demand,
+         min(avg_demand) AS lowest_avg_demand
    FROM AvgDemand
    )
    SELECT
@@ -193,9 +197,9 @@ WHERE t.timestamp LIKE "%2017%";
     GROUP BY weather_temp
     ORDER BY weather_temp_occurence DESC; 
   ```
--- FINDINGS: The weather in 2017 was mostly Mild i.e between 10 and 25 degrees.
+- Findings: The weather in 2017 was mostly Mild i.e between 10 and 25 degrees.
  
- ### 4a.Which weather condition (shown in the weather column)was the most prevalent in 2017?
+ ### 4a. Which weather condition (shown in the weather column)was the most prevalent in 2017?
    ```sql
    SELECT 
          strftime('%Y', date(t.timestamp))year,
@@ -208,11 +212,11 @@ WHERE t.timestamp LIKE "%2017%";
    GROUP BY weather_condition
    ORDER BY weather_condition_occurrence DESC; 
    ```
---FINDINGS: 'Clear or partly cloudy' was the prevalent weather condition in 2017
+- Findings: 'Clear or partly cloudy' was the prevalent weather condition in 2017
  
  
 ### 4b. What was the average, highest, and lowest wind speed and humidity for each month in 2017 ? 
--- **Table for windspeed**
+**Table for windspeed**
  ```sql
    SELECT
          strftime('%Y', date(timestamp)) year,
@@ -225,7 +229,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE year = "2017"
    GROUP BY month;
    ```
-**-- Table for humidity**
+**Table for humidity**
    ```sql
     SELECT
          strftime('%Y', date(timestamp)) year,
@@ -276,7 +280,7 @@ WHERE t.timestamp LIKE "%2017%";
    ),
     HighestAvgDemand AS (
    SELECT 
-   				max(avg_demand) AS highest_demand
+         max(avg_demand) AS highest_demand
    FROM AvgDemand
    )
    SELECT
