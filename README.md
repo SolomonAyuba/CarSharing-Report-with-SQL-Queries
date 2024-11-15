@@ -27,7 +27,7 @@ The deliverables include a structured database and SQL queries to answer key bus
       - Solomon_Final Project (script).sql (SQL script containing solutions for Task 6)
   ```
 
-### Part 1: Data Preparation in Google Sheets
+## Part 1: Data Preparation in Google Sheets
 ### Data Dictionary
 <img width="700" alt="Data Dictionary" src="https://github.com/user-attachments/assets/0a2aedb6-4557-44fd-9956-d4d927f5751b">
 
@@ -75,7 +75,7 @@ The deliverables include a structured database and SQL queries to answer key bus
   - CarSharing_df linked to temperature using temp_code.
   - CarSharing_df linked to weather using weather_code.
   - CarSharing_df linked to time using id.
-## ERD
+### ERD
 <img width="669" alt="ER Diagram" src="https://github.com/user-attachments/assets/4ee8290b-18eb-4ccf-a0c1-2e832b0be3da">
 
 
@@ -132,14 +132,14 @@ WHERE strftime('%Y', timestamp) = '2017';
 
 ## Visual and Data Access
 - **ER Diagram:** Visual representation stored in `/ERD/ER_diagram.png`.
--	**SQL Queries:** Available in `/Project files/queries.sql` for detailed code and execution.
+- **SQL Queries:** Available in `/Project files/queries.sql` for detailed code and execution.
 - **Database File:** The final database is stored in `/Project files/carsharing.db`.
 
 ## Conclusion
 
 This project successfully manipulates and restructures data using Google Sheets, creates a relational database, and extracts business insights with SQL. These results provide valuable information on customer demand patterns and weather influences on car-sharing behavior in 2017.
 
-Links for Download:
-	•	Google Drive Folder with CSVs
+## Links for Download:
+[Google Drive Folder with CSVs](https://drive.google.com/drive/folders/1YYuZQ3CN6tMq6vOzdI59jr6bT-If10mX?usp=drive_link)
  
-© [Datafied Technologies](https://www.linkedin.com/company/datafiedhub/posts/?feedView=all) 2024.
+© Datafied Technologies: [GitHub](https://github.com/Datafyde/Datafyde)[LinkedIn](https://www.linkedin.com/company/datafiedhub/posts/?feedView=all) 15.11.2024
