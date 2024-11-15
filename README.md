@@ -75,16 +75,16 @@ The deliverables include a structured database and SQL queries to answer key bus
 
 ### 2. Table Relationships:
   - Established relationships between tables as per the ER diagram:
-  - CarSharing_df linked to temperature using temp_code.
-  - CarSharing_df linked to weather using weather_code.
-  - CarSharing_df linked to time using id.
+  - `CarSharing_df` linked to `temperature` using `temp_code`.
+  - `CarSharing_df` linked to `weather` using `weather_code`.
+  - `CarSharing_df` linked to `time` using `id`.
+
 ### ERD
 <img width="669" alt="ER Diagram" src="https://github.com/user-attachments/assets/4ee8290b-18eb-4ccf-a0c1-2e832b0be3da">
 
 
 ## Part 3: Business Queries and Analysis
 Linda happens to be the boss at the company. She requested for a report containing the following information: 
-
   - (a) Please tell me which date and time we had the highest demand rate in 2017.
   - (b) Give me a table containing the name of the weekday, month, and season in which we had the highest and lowest average demand throughout 2017. Please include the calculated average demand values as well.
   - (c) For the weekday(s) selected in (b), please give me a table showing the average demand we had at different hours of that weekday throughout 2017. Please sort the results in descending order based on the average demand.
