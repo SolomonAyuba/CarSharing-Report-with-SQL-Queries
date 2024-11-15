@@ -7,7 +7,10 @@ This project involves analyzing a dataset from a car-sharing company. The data s
 2. Database management in SQL
 3. Query generation for business reporting.
    
-The deliverables include a structured database and SQL queries to answer key business questions. This documentation outlines the steps taken and the final results, structured for GitHub’s README section.
+The deliverables include a structured database and SQL queries to answer key business questions. This documentation outlines the steps taken and the final results. 
+
+### Links for Download:
+[Google Drive Folder with CSVs](https://drive.google.com/drive/folders/1YYuZQ3CN6tMq6vOzdI59jr6bT-If10mX?usp=drive_link)
 
 ## Project Structure and Deliverables
 ### Repository Structure:
@@ -138,8 +141,5 @@ WHERE strftime('%Y', timestamp) = '2017';
 ## Conclusion
 
 This project successfully manipulates and restructures data using Google Sheets, creates a relational database, and extracts business insights with SQL. These results provide valuable information on customer demand patterns and weather influences on car-sharing behavior in 2017.
-
-## Links for Download:
-[Google Drive Folder with CSVs](https://drive.google.com/drive/folders/1YYuZQ3CN6tMq6vOzdI59jr6bT-If10mX?usp=drive_link)
  
-© Datafied Technologies: [GitHub](https://github.com/Datafyde/Datafyde)[LinkedIn](https://www.linkedin.com/company/datafiedhub/posts/?feedView=all) 15.11.2024
+© Datafied Technologies: [GitHub](https://github.com/Datafyde/Datafyde) |  [LinkedIn](https://www.linkedin.com/company/datafiedhub/posts/?feedView=all) 15.11.2024
