@@ -1,0 +1,5 @@
+weather,weather_code
+Clear or partly cloudy,-1
+Mist,-2
+Light snow or rain,-3
+heavy rain/ice pellets/snow + fog,-4
