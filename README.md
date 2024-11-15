@@ -37,32 +37,34 @@ The deliverables include a structured database and SQL queries to answer key bus
 ### 1. Handling Missing Values:
   - Missing values in the `temp` and `temp_feel` columns were filled using the average of their respective columns. This was accomplished using:
   ```google spreadsheet
-  =IF(ISBLANK(G3), ROUND(AVERAGE(G3:G8710), 2), G3)
+  =IF(ISBLANK(I2),ROUND(AVERAGE(I2:I8710),2),I2)
+  =IF(ISBLANK(I2),ROUND(AVERAGE(I2:I8710),2),I2)
+
    ```
 
 ### 2. Creating New Columns:
   - Added a column `temp_category` using `nested IF functions`:
   ```google spreadsheet
-  =IF(H3 < 10, "Cold", IF(H3 <= 25, "Mild", "Hot"))
+  =IF(G2:G8709<10, "Cold", IF(AND(G2:G8709>=10, G2:G8709<=25),"Mild", IF(G2:G8709>25, "Hot")))
   ```
 
   - Created `temp_code` as a unique identifier for `temperature` features:
   ```excel
-  =CONCATENATE(G3, "-", H3, "-", I3)
+  =CONCATENATE(G2, "-",H2,"-", P2)
   ```
 
 ### 3. Weather Coding:
   - Added a `weather_code` column based on `weather conditions`:
   ```excel
-  =IF(J3="Clear or partly cloudy", 1, IF(J3="Mist", 2, IF(J3="Light snow or rain", 3, 4)))
+  =IF(F2 = "Clear or partly cloudy", -1,IF(F2 = "Mist",-2,IF(F2="Light snow or rain",-3,                IF(F2="heavy rain/ice pellets/snow + fog",-4))))
   ```
 
 ### 4. Date and Time Extraction:
   - Extracted `hour`, `weekday name`, and `month name` from timestamp using the `TEXT function`:
   ```excel
-  =TEXT(A3, "HH")
-  =TEXT(A3, "dddd")
-  =TEXT(A3, "mmmm")
+  =TEXT(B3, "HH")
+  =TEXT(B3, "DDD")
+  =TEXT(B3, "MMMM")
   ```
 ### 5. Creation of Separate Sheets:
   - Created the `weather` sheet with `weather` and `weather_code`, removed duplicates, and deleted the `weather` column from `CarSharing_df`.
