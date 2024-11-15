@@ -91,11 +91,11 @@ Linda happens to be the boss at the company. She requested for a report containi
 3. For the weekday(s) selected in (2), please give me a table showing the average demand we had at different hours of that weekday throughout 2017. Please sort the results in descending order based on the average demand.
 4. Please tell me what the weather was like in 2017. Was it mostly cold, mild, or hot?
    
-   -    a. Which weather condition (shown in the weather column) was the most prevalent in 2017?
+   a. Which weather condition (shown in the weather column) was the most prevalent in 2017?
      
-   -    b. What was the average, highest, and lowest wind speed and humidity for each month in 2017? Please organize this information in two tables for the wind speed and humidity.
-     
-   -    c. Please also give me a table showing the average demand for each cold, mild, and hot weather in 2017 sorted in descending order based on their average demand.
+   b. What was the average, highest, and lowest wind speed and humidity for each month in 2017? Please organize this information in two tables for the wind speed and humidity.
+   
+   c. Please also give me a table showing the average demand for each cold, mild, and hot weather in 2017 sorted in descending order based on their average demand.
      
 6. Give me another table showing the information requested in (4) for the month we had the highest average demand in 2017 so that I can compare it with other months.
 
