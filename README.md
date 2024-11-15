@@ -36,10 +36,9 @@ The deliverables include a structured database and SQL queries to answer key bus
 
 ### 1. Handling Missing Values:
   - Missing values in the `temp` and `temp_feel` columns were filled using the average of their respective columns. This was accomplished using:
-  ```google spreadsheet
+  ```excel
   =IF(ISBLANK(I2),ROUND(AVERAGE(I2:I8710),2),I2)
   =IF(ISBLANK(I2),ROUND(AVERAGE(I2:I8710),2),I2)
-
    ```
 
 ### 2. Creating New Columns:
@@ -49,22 +48,24 @@ The deliverables include a structured database and SQL queries to answer key bus
   ```
 
   - Created `temp_code` as a unique identifier for `temperature` features:
-  ```excel
+  ```markdown
+      excel
   =CONCATENATE(G2, "-",H2,"-", P2)
   ```
 
 ### 3. Weather Coding:
   - Added a `weather_code` column based on `weather conditions`:
   ```excel
-  =IF(F2 = "Clear or partly cloudy", -1,IF(F2 = "Mist",-2,IF(F2="Light snow or rain",-3,                IF(F2="heavy rain/ice pellets/snow + fog",-4))))
+  =IF(F2 = "Clear or partly cloudy", -1,IF(F2 = "Mist",-2,IF(F2="Light snow or rain",-3, IF(F2="heavy rain/ice pellets/snow + fog",-4))))
   ```
 
 ### 4. Date and Time Extraction:
   - Extracted `hour`, `weekday name`, and `month name` from timestamp using the `TEXT function`:
+  ```markdown
   ```excel
-  =TEXT(B3, "HH")
-  =TEXT(B3, "DDD")
-  =TEXT(B3, "MMMM")
+     =TEXT(B3, "HH")
+     =TEXT(B3, "DDD")
+     =TEXT(B3, "MMMM")
   ```
 ### 5. Creation of Separate Sheets:
   - Created the `weather` sheet with `weather` and `weather_code`, removed duplicates, and deleted the `weather` column from `CarSharing_df`.
