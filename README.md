@@ -90,9 +90,9 @@ Linda happens to be the boss at the company. She requested for a report containi
 2. Give me a table containing the name of the weekday, month, and season in which we had the highest and lowest average demand throughout 2017. Please include the calculated average demand values as well.
 3. For the weekday(s) selected in (2), please give me a table showing the average demand we had at different hours of that weekday throughout 2017. Please sort the results in descending order based on the average demand.
 4. Please tell me what the weather was like in 2017. Was it mostly cold, mild, or hot?
-   a. Which weather condition (shown in the weather column) was the most prevalent in 2017?
-   b. What was the average, highest, and lowest wind speed and humidity for each month in 2017? Please organize this information in two tables for the wind speed and humidity.
-   c. Please also give me a table showing the average demand for each cold, mild, and hot weather in 2017 sorted in descending order based on their average demand.
+   -    a. Which weather condition (shown in the weather column) was the most prevalent in 2017?
+   -    b. What was the average, highest, and lowest wind speed and humidity for each month in 2017? Please organize this information in two tables for the wind speed and humidity.
+   -    c. Please also give me a table showing the average demand for each cold, mild, and hot weather in 2017 sorted in descending order based on their average demand.
 5. Give me another table showing the information requested in (4) for the month we had the highest average demand in 2017 so that I can compare it with other months.
 
 
@@ -142,7 +142,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE ad.avg_demand = hlad.highest_avg_demand
    OR			 ad.avg_demand = hlad.lowest_avg_demand;
    ```
-### 3. The Average demand we had at different hours of that weekday throughout 2017:
+### 3. The Average demand at different hours of that weekday throughout 2017:
    ```sql
    WITH AvgDemand AS (
    SELECT 
@@ -176,7 +176,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE ad.avg_demand = hlad.highest_avg_demand
    OR			 ad.avg_demand = hlad.lowest_avg_demand;
    ```
-### 4. (d1) Please tell me what the weather was like in 2017. Was it mostly cold, mild, or hot? 
+### 4. What the weather was like in 2017: 
    ```sql
    SELECT 
          strftime('%Y', date(t.timestamp))year,
@@ -195,7 +195,7 @@ WHERE t.timestamp LIKE "%2017%";
   ```
 -- FINDINGS: The weather in 2017 was mostly Mild i.e between 10 and 25 degrees.
  
- ### 5. (d2) which weather condition (shown in the weather column)was the most prevalent in 2017?
+ ### 4a.Which weather condition (shown in the weather column)was the most prevalent in 2017?
    ```sql
    SELECT 
          strftime('%Y', date(t.timestamp))year,
@@ -211,7 +211,7 @@ WHERE t.timestamp LIKE "%2017%";
 --FINDINGS: 'Clear or partly cloudy' was the prevalent weather condition in 2017
  
  
-### 6. (d3) What was the average, highest, and lowest wind speed and humidity for each month in 2017 ? Please organize this information in two tables for the wind speed and humidity. 
+### 4b. What was the average, highest, and lowest wind speed and humidity for each month in 2017 ? 
 -- **Table for windspeed**
  ```sql
    SELECT
@@ -238,7 +238,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE year = "2017"
    GROUP BY month;
    ```
-### 7. (d4) Please also give me a table showing the average demand for each cold, mild, and hot weather in 2017. Sorted in descending order based on their average demand. 
+### 4c. A table showing the average demand for cold, mild, and hot weather in 2017. Sorted in descending order based on their average demand. 
    ```sql
    SELECT
          strftime('%Y', date(t.timestamp))year,
@@ -255,7 +255,7 @@ WHERE t.timestamp LIKE "%2017%";
    GROUP BY t.id
    ORDER BY avg_demand DESC;
    ```	      
-### 8. (e) Give me another table showing the information requested in (d) for the month we had the highest average demand in 2017
+### 5. A table showing the information requested in (4) for the month with the highest average demand in 2017
    ```sql
    WITH AvgDemand AS (
    SELECT 
