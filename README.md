@@ -36,30 +36,30 @@ The deliverables include a structured database and SQL queries to answer key bus
 
 ### 1. Handling Missing Values:
   - Missing values in the `temp` and `temp_feel` columns were filled using the average of their respective columns. This was accomplished using:
-  ```google speadsheet
+  ```google spreadsheet
   =IF(ISBLANK(G3), ROUND(AVERAGE(G3:G8710), 2), G3)
    ```
 
 ### 2. Creating New Columns:
   - Added a column `temp_category` using `nested IF functions`:
-  ```google speadsheet
+  ```google spreadsheet
   =IF(H3 < 10, "Cold", IF(H3 <= 25, "Mild", "Hot"))
   ```
 
   - Created `temp_code` as a unique identifier for `temperature` features:
-  ```google spreadsheet
+  ```excel
   =CONCATENATE(G3, "-", H3, "-", I3)
   ```
 
 ### 3. Weather Coding:
   - Added a `weather_code` column based on `weather conditions`:
-  ```google spreadsheet
+  ```excel
   =IF(J3="Clear or partly cloudy", 1, IF(J3="Mist", 2, IF(J3="Light snow or rain", 3, 4)))
   ```
 
 ### 4. Date and Time Extraction:
   - Extracted `hour`, `weekday name`, and `month name` from timestamp using the `TEXT function`:
-  ```google spreadsheet
+  ```excel
   =TEXT(A3, "HH")
   =TEXT(A3, "dddd")
   =TEXT(A3, "mmmm")
@@ -174,7 +174,7 @@ WHERE t.timestamp LIKE "%2017%";
    OR			 ad.avg_demand = hlad.lowest_avg_demand;
    ```
 ### 4. (d1) Please tell me what the weather was like in 2017. Was it mostly cold, mild, or hot? 
-   ```
+   ```sql
    SELECT 
    				strftime('%Y', date(t.timestamp))year,
    				CASE
@@ -193,7 +193,7 @@ WHERE t.timestamp LIKE "%2017%";
 -- FINDINGS: The weather in 2017 was mostly Mild i.e between 10 and 25 degrees.
  
  ### 5. (d2) which weather condition (shown in the weather column)was the most prevalent in 2017?
-   ```
+   ```sql
    SELECT 
    				strftime('%Y', date(t.timestamp))year,
    				w.weather AS weather_condition,
@@ -210,7 +210,7 @@ WHERE t.timestamp LIKE "%2017%";
  
 ### 6. (d3) What was the average, highest, and lowest wind speed and humidity for each month in 2017 ? Please organize this information in two tables for the wind speed and humidity. 
 -- **Table for windspeed**
- ```
+ ```sql
    SELECT
    				strftime('%Y', date(timestamp)) year,
    				strftime('%m', date(timestamp)) month,
@@ -223,7 +223,7 @@ WHERE t.timestamp LIKE "%2017%";
    GROUP BY month;
    ```
 **-- Table for humidity**
-   ```
+   ```sql
     SELECT
    				strftime('%Y', date(timestamp)) year,
    				strftime('%m', date(timestamp)) month,
@@ -236,7 +236,7 @@ WHERE t.timestamp LIKE "%2017%";
    GROUP BY month;
    ```
 ### 7. (d4) Please also give me a table showing the average demand for each cold, mild, and hot weather in 2017. Sorted in descending order based on their average demand. 
-   ```
+   ```sql
    SELECT
    				strftime('%Y', date(t.timestamp))year,
    				round(avg(demand),2)avg_demand,
@@ -253,7 +253,7 @@ WHERE t.timestamp LIKE "%2017%";
    ORDER BY avg_demand DESC;
    ```	      
 ### 8. (e) Give me another table showing the information requested in (d) for the month we had the highest average demand in 2017
-   ```
+   ```sql
    WITH AvgDemand AS (
    SELECT 
    				strftime('%Y', date(t.timestamp)) AS year,
