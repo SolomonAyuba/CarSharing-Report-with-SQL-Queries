@@ -35,7 +35,7 @@ The deliverables include a structured database and SQL queries to answer key bus
 <img width="700" alt="Data Dictionary" src="https://github.com/user-attachments/assets/0a2aedb6-4557-44fd-9956-d4d927f5751b">
 
 ### 1. Handling Missing Values:
-  - Missing values in the `temp` and `temp_feel` columns were filled using the average of their respective columns. This was accomplished using:
+   Missing values in the `temp` and `temp_feel` columns were filled using the average of their respective columns. This was accomplished using:
   ```markdown
   =IF(ISBLANK(I2),ROUND(AVERAGE(I2:I8710),2),I2)
   =IF(ISBLANK(I2),ROUND(AVERAGE(I2:I8710),2),I2)
@@ -53,13 +53,13 @@ The deliverables include a structured database and SQL queries to answer key bus
   ```
 
 ### 3. Weather Coding:
-  - Added a `weather_code` column based on `weather conditions`:
+   Added a `weather_code` column based on `weather conditions`:
   ```markdown
   =IF(F2 = "Clear or partly cloudy", -1,IF(F2 = "Mist",-2,IF(F2="Light snow or rain",-3, IF(F2="heavy rain/ice pellets/snow + fog",-4))))
   ```
 
 ### 4. Date and Time Extraction:
-  - Extracted `hour`, `weekday name`, and `month name` from timestamp using the `TEXT function`:
+   Extracted `hour`, `weekday name`, and `month name` from timestamp using the `TEXT function`:
   ```markdown
      =TEXT(B3, "HH")
      =TEXT(B3, "DDD")
@@ -102,7 +102,7 @@ Linda happens to be the boss at the company. She requested for a report containi
 
 
 ## The requested queries were answered as follows:
-#### 1. Date and time with the Highest Demand in 2017:
+#### 1. What date and time did we have the Highest Demand in 2017:
 ```sql
 SELECT 
       strftime('%Y-%m-%d', datetime(timestamp)) AS date,
@@ -114,7 +114,7 @@ JOIN time t
 ON t.id = cs.id
 WHERE t.timestamp LIKE "%2017%";
 ```
-#### 2. Name of the weekday, month, and season in which we had the highest and lowest average demand throughout 2017:
+#### 2. What are the names of the weekday, month, and season in which we had the highest and lowest average demand throughout 2017:
    ```sql
    WITH AvgDemand AS (
    SELECT 
@@ -147,7 +147,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE ad.avg_demand = hlad.highest_avg_demand
    OR			 ad.avg_demand = hlad.lowest_avg_demand;
    ```
-#### 3. The Average demand at different hours of that weekday throughout 2017:
+#### 3. What was the Average demand at different hours of that weekday throughout 2017:
    ```sql
    WITH AvgDemand AS (
    SELECT 
@@ -181,7 +181,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE ad.avg_demand = hlad.highest_avg_demand
    OR			 ad.avg_demand = hlad.lowest_avg_demand;
    ```
-#### 4. What the weather was like in 2017: 
+#### 4. What was the weather like in 2017: 
    ```sql
    SELECT 
          strftime('%Y', date(t.timestamp))year,
@@ -295,9 +295,9 @@ WHERE t.timestamp LIKE "%2017%";
    ```
 
 ## Visual and Data Access
-- **ER Diagram:** Visual representation stored in `/ERD/ER_diagram.png`.
-- **SQL Queries:** Available in `/Project files/queries.sql` for detailed code and execution.
-- **Database File:** The final database is stored in `/Project files/carsharing.db`.
+- **ER Diagram:** Visual representation stored in `/ERD/ER diagram.png`.
+- **SQL Queries:** Available in `/Project files/Solomon_Final Project(script).sql` for detailed code and execution.
+- **Database File:** The final database is stored in `/Project files/Solomon_Final Project(database).db`.
 
 ## Conclusion
 
