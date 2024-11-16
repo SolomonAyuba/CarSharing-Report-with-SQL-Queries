@@ -12,7 +12,7 @@ The deliverables include a structured database and SQL queries to answer key bus
 ## Data Source and License
 The original dataset was obtained from a car-sharing company and includes hourly data on customer demand rates, weather conditions, and temperature. Due to privacy considerations, the dataset has been anonymized and sanitized.
 
-This project is licensed under the [Datafied Technologies](https://www.linkedin.com/company/datafiedhub/posts/?feedView=all) License - see the LICENSE file for details
+This project is licensed under the [Datafied Technologies](https://www.linkedin.com/company/datafiedhub/posts/?feedView=all) License
 
 
 ## Project Structure and Deliverables
