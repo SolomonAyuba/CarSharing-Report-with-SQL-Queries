@@ -75,7 +75,7 @@ Click to download: [Google Drive Folder with CSVs](https://drive.google.com/driv
   - Created the `temperature` sheet with `temp`, `temp_feel`, `temp_category`, and `temp_code`, removed duplicates, and deleted all but `temp_code` column from `CarSharing_df`.
   - Created the `time` sheet with `id`, `timestamp`, `season`, `hour`, `weekday name`, and `month name`, and removed all but `id` column from `CarSharing_df`.
 
-## Part 2: Database Management with MySQLWorkbench
+## Part 2: Database Management with MySQL Workbench
 ### 1. Database Creation:
   - Created an SQLite database named `carsharing.db` and imported the four CSV files (`CarSharing_df.csv`, `temperature.csv`, `weather.csv`, `time.csv`) as tables.
 
@@ -106,8 +106,8 @@ Linda happens to be the Boss of the company. She requested a report containing t
 6. Give me another table showing the information requested in (4) for the month we had the highest average demand in 2017 so that I can compare it with other months.
 
 
-## The requested queries were answered as follows using SQLite:
-#### 1. What date and time did we have the Highest Demand in 2017:
+## The requested queries were answered as follows using SQLite
+#### 1. What date and time did we have the Highest Demand in 2017? 
 ```sql
 SELECT 
       strftime('%Y-%m-%d', datetime(timestamp)) AS date,
@@ -119,7 +119,7 @@ JOIN time t
 ON t.id = cs.id
 WHERE t.timestamp LIKE "%2017%";
 ```
-#### 2. What are the names of the weekday, month, and season in which we had the highest and lowest average demand throughout 2017:
+#### 2. What are the names of the weekday, month, and season in which we had the highest and lowest average demand throughout 2017? 
    ```sql
    WITH AvgDemand AS (
    SELECT 
@@ -152,7 +152,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE ad.avg_demand = hlad.highest_avg_demand
    OR			 ad.avg_demand = hlad.lowest_avg_demand;
    ```
-#### 3. What was the Average demand at different hours of that weekday throughout 2017:
+#### 3. What was the Average demand at different hours of that weekday throughout 2017? 
    ```sql
    WITH AvgDemand AS (
    SELECT 
@@ -186,7 +186,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE ad.avg_demand = hlad.highest_avg_demand
    OR			 ad.avg_demand = hlad.lowest_avg_demand;
    ```
-#### 4. What was the weather like in 2017: 
+#### 4. What was the weather like in 2017? 
    ```sql
    SELECT 
          strftime('%Y', date(t.timestamp))year,
@@ -205,7 +205,7 @@ WHERE t.timestamp LIKE "%2017%";
   ```
 - Findings: The weather in 2017 was mostly Mild i.e between 10 and 25 degrees.
  
- #### 4a. Which weather condition (shown in the weather column)was the most prevalent in 2017?
+ #### 4a. Which weather condition (shown in the weather column)was the most prevalent in 2017? 
    ```sql
    SELECT 
          strftime('%Y', date(t.timestamp))year,
@@ -221,8 +221,8 @@ WHERE t.timestamp LIKE "%2017%";
 - Findings: 'Clear or partly cloudy' was the prevalent weather condition in 2017
  
  
-#### 4b. What was the average, highest, and lowest wind speed and humidity for each month in 2017 ? 
-**Table for windspeed**
+#### 4b. What was the average, highest, and lowest wind speed and humidity for each month in 2017?
+**Table for windspeed:**
  ```sql
    SELECT
          strftime('%Y', date(timestamp)) year,
@@ -235,7 +235,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE year = "2017"
    GROUP BY month;
    ```
-**Table for humidity**
+**Table for humidity:**
    ```sql
     SELECT
          strftime('%Y', date(timestamp)) year,
@@ -248,7 +248,7 @@ WHERE t.timestamp LIKE "%2017%";
    WHERE year = "2017"
    GROUP BY month;
    ```
-#### 4c. A table showing the average demand for cold, mild, and hot weather in 2017. Sorted in descending order based on their average demand. 
+#### 4c. A table showing the average demand for cold, mild, and hot weather in 2017. Sorted in descending order based on their average demand: 
    ```sql
    SELECT
          strftime('%Y', date(t.timestamp))year,
@@ -265,7 +265,7 @@ WHERE t.timestamp LIKE "%2017%";
    GROUP BY t.id
    ORDER BY avg_demand DESC;
    ```	      
-#### 5. A table showing the information requested in (4) for the month with the highest average demand in 2017
+#### 5. A table showing the information requested in (4) for the month with the highest average demand in 2017:
    ```sql
    WITH AvgDemand AS (
    SELECT 
