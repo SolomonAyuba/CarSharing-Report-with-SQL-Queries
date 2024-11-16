@@ -1,4 +1,5 @@
 # Guided Project for End of SQL + Google Sheets for Data Analytics Course with [Datafied Technologies](https://www.linkedin.com/company/datafiedhub)
+by [Solomon Ayuba](https://www.linkedin.com/in/solomonayuba/)
 
 ## Project Overview
 
@@ -304,3 +305,5 @@ WHERE t.timestamp LIKE "%2017%";
 This project successfully manipulates and restructures data using Google Sheets, creates a relational database, and extracts business insights with SQL. These results provide valuable information on customer demand patterns and weather influences on car-sharing behavior in 2017.
  
 © Datafied Technologies: [GitHub](https://github.com/Datafyde/Datafyde) |  [LinkedIn](https://www.linkedin.com/company/datafiedhub/posts/?feedView=all) 15.11.2024
+
+[Miva Open University](https://miva.university/)
