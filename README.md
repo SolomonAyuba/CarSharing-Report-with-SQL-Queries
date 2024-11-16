@@ -1,5 +1,5 @@
 # Guided Project for End of SQL + Google Sheets for Data Analytics Course with [Datafied Technologies](https://www.linkedin.com/company/datafiedhub)
-by [Solomon Ayuba](https://www.linkedin.com/in/solomonayuba/)
+Author: [Solomon Ayuba](https://www.linkedin.com/in/solomonayuba/)
 
 ## Project Overview
 
@@ -9,9 +9,11 @@ This project involves analyzing a dataset from a car-sharing company. The data s
 3. Query generation for business reporting.
    
 The deliverables include a structured database and SQL queries to answer key business questions. This documentation outlines the steps taken and the final results. 
+## Data Source and License
+The original dataset was obtained from a car-sharing company and includes hourly data on customer demand rates, weather conditions, and temperature. Due to privacy considerations, the dataset has been anonymized and sanitized.
 
-### Links for Download:
-[Google Drive Folder with CSVs](https://drive.google.com/drive/folders/1YYuZQ3CN6tMq6vOzdI59jr6bT-If10mX?usp=drive_link)
+This project is licensed under the [Datafied Technologies](https://www.linkedin.com/company/datafiedhub/posts/?feedView=all) License - see the LICENSE file for details
+
 
 ## Project Structure and Deliverables
 ### Repository Structure:
@@ -30,6 +32,8 @@ The deliverables include a structured database and SQL queries to answer key bus
       - Solomon_Final Project(project file).sqbpro (SQLite Browser project file)
       - Solomon_Final Project (script).sql (SQL script containing solutions to the Business Questions)
   ```
+### Links for Download:
+Click to download: [Google Drive Folder with CSVs](https://drive.google.com/drive/folders/1YYuZQ3CN6tMq6vOzdI59jr6bT-If10mX?usp=drive_link)
 
 ## Part 1: Data Preparation in Google Sheets
 ### Data Dictionary
