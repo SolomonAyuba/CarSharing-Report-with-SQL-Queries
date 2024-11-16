@@ -27,7 +27,7 @@ The deliverables include a structured database and SQL queries to answer key bus
   - /Project files (database & script)
       - Solomon_Final Project (database).db (SQL database)
       - Solomon_Final Project(project file).sqbpro (SQLite Browser project file)
-      - Solomon_Final Project (script).sql (SQL script containing solutions for Task 6)
+      - Solomon_Final Project (script).sql (SQL script containing solutions to the Business Questions)
   ```
 
 ## Part 1: Data Preparation in Google Sheets
@@ -70,7 +70,7 @@ The deliverables include a structured database and SQL queries to answer key bus
   - Created the `temperature` sheet with `temp`, `temp_feel`, `temp_category`, and `temp_code`, removed duplicates, and deleted all but `temp_code` column from `CarSharing_df`.
   - Created the `time` sheet with `id`, `timestamp`, `season`, `hour`, `weekday name`, and `month name`, and removed all but `id` column from `CarSharing_df`.
 
-## Part 2: Database Management with SQLite
+## Part 2: Database Management with MySQLWorkbench
 ### 1. Database Creation:
   - Created an SQLite database named `carsharing.db` and imported the four CSV files (`CarSharing_df.csv`, `temperature.csv`, `weather.csv`, `time.csv`) as tables.
 
@@ -85,7 +85,7 @@ The deliverables include a structured database and SQL queries to answer key bus
 
 
 ## Part 3: Business Queries and Analysis
-Linda happens to be the boss at the company. She requested for a report containing the following information: 
+Linda happens to be the Boss of the company. She requested a report containing the following information: 
 
 1. Please tell me which date and time we had the highest demand rate in 2017.
 2. Give me a table containing the name of the weekday, month, and season in which we had the highest and lowest average demand throughout 2017. Please include the calculated average demand values as well.
@@ -101,7 +101,7 @@ Linda happens to be the boss at the company. She requested for a report containi
 6. Give me another table showing the information requested in (4) for the month we had the highest average demand in 2017 so that I can compare it with other months.
 
 
-## The requested queries were answered as follows:
+## The requested queries were answered as follows using SQLite:
 #### 1. What date and time did we have the Highest Demand in 2017:
 ```sql
 SELECT 
